@@ -1,0 +1,102 @@
+# Replace values in column 'haze'
+# No n'hi ha = no, replaced by 0
+# si = yes, replaced by 1
+df['haze'].replace(["No n'hi ha", "Si"], [0, 1], inplace = True)
+
+
+# Replace values in terrain_characteristics
+# As the 'Sense Especificar' Unknown, changed to NaN
+# 'A nivel' = At the level, replaced by 1
+# 'Desmunt' = disassemble, replaced by 2
+# 'Mixt' = mixed, replaced by 3
+# 'Sense Especificar' = Unknown (No special characteristics), replaced by 0
+# 'Terraplé' = embankment, replaced by 4
+df['terrain_characteristics'].replace(["Sense Especificar", "A nivell", "Desmunt", "Mixt", "Terraplé"], [np.nan, 0, 1, 2, 3], inplace = True)
+
+
+# Replace values in 'special_lane'
+# 'Sense Especificar' = Unknown
+# 'No n'hi ha' = No special characteristics
+# 'Altres' = Others
+# 'Carril acceleració' = Fast lane
+# 
+df['special_lane'].replace(["Sense Especificar", "No n'hi ha", "Altres", "Carril acceleració", "Carril avançament", "Carril bici", "Carril bus", "Carril central", "Carril d'alentiment",
+                            "Carril habilitat en sentit contrari habitual", "Carril lent", "Carril reversible", "Habilitació voral/carril addicional"], [np.nan, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+                            inplace = True)
+
+
+
+df['special_traffic_measures'].replace(["No n'hi ha", 'Accident trànsit anterior', 'Cons', 'Esdeveniment extraordinari', 'Obres', 'Serveis de neteja o manteniment'], [0, 1, 2, 3, 4, 5], inplace = True)
+
+
+
+
+df['climatology'].replace(['Bon temps', 'Nevant', 'Pluja dèbil', 'Pluja forta'], [0, 1, 2, 3], inplace = True)
+
+
+
+
+df['special_function_track'].replace(['Sense funció especial', 'Ronda, cinturo o circumval.lacio', 'Travessera', 'Variant'], [0, 1, 2, 3], inplace = True)
+
+
+
+
+df['object_on_way'].replace(['No', 'Si', 'Sense especificar'], [0, 1, np.nan], inplace = True)
+
+
+
+df['f/d_in_road'].replace(["No", 'Si', 'Sense especificar'], [0, 1, np.nan], inplace = True)
+
+
+
+df['intersection'].replace(['En secció', 'Arribant o eixint intersecció fins 50m', 'Dintre intersecció'], [0, 1, 2], inplace = True)
+
+
+
+df['speed_limit_visualization'].replace(['Genérica via', 'Senyal velocitat'], [0, 1], inplace = True)
+
+
+
+df['illumination'].replace(['Sense especificar', 'Alba o capvespre', 'De dia, dia clar', 'De dia, dia fosc', 'De nit, il·luminació artificial insuficient', 'De nit, il·luminació artificial suficient',
+                            'De nit, sense llum artificial'], [np.nan, 1, 2, 3, 4, 5, 6], inplace = True)
+
+
+
+df['priority_regulation'].replace(['Persona autoritzada', 'Semàfor', 'Senyal Stop o cedeix pas', 'Sols marques viàries (inclou pas vianants)', 'Sols norma prioritat de pas'], [1, 2, 3, 4, 5], inplace = True)
+
+
+
+df['directions'].replace(['Un sol sentit', 'Doble sentit', 'Sense especificar'], [1, 2, np.nan], inplace = True)
+
+
+
+df['type of accident'].replace(['Altres', 'Atropellament', 'Bolcada a la calcada', "Col.lisió d'un vehicle contra un obstacle de la calcada", 'Col.lisió de vehicles en marxa',
+                                'Sortida de la calcada sense especificar'], [1, 2, 3, 4, 5, 6], inplace = True)
+
+
+
+df['zone'].replace(['Carretera', 'Travessera', 'Zona urbana'], [1, 2, 3], inplace = True)
+
+
+
+df['road_condition'].replace(['Sec i net', 'Inundat', 'Mullat', 'Nevat', 'Relliscós'], [0, 1, 2, 3, 4], inplace = True)
+
+
+
+df['road_type'].replace(['Via urbana( inclou carrer i carrer residencial)', 'Carretera convencional', 'Autovia', 'Autopista', 'Altres'], [1, 2, 3, 4, 5], inplace = True)
+
+
+
+df['altimeter_layout'].replace(['Sense especificar', 'Pla', 'Rampa o pendent', 'Gual', 'Canvi rasant'], [np.nan, 0, 1, 2, 3], inplace = True)
+
+
+
+df['wind'].replace(['Sense especificar', 'Calma, vent molt suau', 'Vent moderat', 'Vent fort'], [np.nan, 1, 2, 3], inplace = True)
+
+
+
+df['day_type'].replace(['CapDeSetmana', 'Feiners'], [1, 2], inplace = True)
+
+
+
+df['moment'].replace(['Matí', 'Tarda', 'Nit'], [1, 2, 3], inplace = True)
